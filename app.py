@@ -11,7 +11,7 @@ def get_db_connection():
     # 2. Add the Driver name (Required for Linux)
     # Most Azure Linux plans now use Driver 18
     if 'DRIVER' not in conn_str:
-        driver = '{ODBC Driver 18 for SQL Server}'
+        driver = '{ODBC Driver 17 for SQL Server}'
         conn_str = f"DRIVER={driver};{conn_str}"
     
     # 3. Add TrustServerCertificate for Azure SQL (Prevents SSL errors)
