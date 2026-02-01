@@ -13,9 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+     
+      - name: Inject GitHub Username
+        run: |
+          sed -i "s/\[NHedayahKamis\]/${{ github.actor }}/g" index.html
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-        
           app-name: 'cicd-B1-project' 
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
